@@ -69,7 +69,7 @@ The next layer is made of the generic controller actions: Index, Show (may not b
 1. Install server related dependencies `npm i express morgan cors body-parser` and `npm i -D nodemon`
 2. Create a file `server.js` which imports `express` and `middleware`, instantiates an express app, and sets it up to use necessary middleware
 3. Write `npm scripts` for running the server in development with nodemon and in production with node
-4. Use insomnia to test that he server is running a responding to requests with 404 (you haven't set any routes up yet)
+4. Use insomnia to test that the server is running and responding to requests with 404 (you haven't set any routes up yet)
 5. In `server.js` add route handlers for the routes you wrote in your planning materials
     1. Go one at a time, only moving on to the next route when you have confirmed the last works using insomnia
 
