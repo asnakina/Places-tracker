@@ -71,7 +71,7 @@ The next layer is made of the generic controller actions: Index, Show (may not b
 3. Write `npm scripts` for running the server in development with nodemon and in production with node
 4. Use insomnia to test that the server is running and responding to requests with 404 (you haven't set any routes up yet)
 5. In `server.js` add route handlers for the routes you wrote in your planning materials
-    1. Go one at a time, only moving on to the next route when you have confirmed the last works using insomnia
+    1. Go one at a time, only moving on to the next route when you have confirmed the last one works using insomnia
 
 
 #### React
