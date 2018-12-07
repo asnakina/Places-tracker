@@ -21,7 +21,7 @@ The places table should have an `id`, `created_at` and `updated_at` timestamps, 
 #### API Routes
 
 Write out all of the routes (method and path) that your server will need to expose.
-With each, include a brief description of what needs to be included in the request and what will happen on the server to fulfil that request.
+With each, include a brief description of what needs to be included in the request and what will happen on the server to fulfill that request.
 
 #### Wireframes
 
@@ -59,7 +59,7 @@ Define models that will define and allow interaction with the database.
 1. Create a `package.json` file to track server dependencies: `npm init -y`
 2. Install database related dependencies `npm i pg pg-hstore sequelize`
 3. Create a file `models.js`, instantiate a connection to the database and define your model. Be sure to export your models and database connection
-4. Create files `resetDb.js` and `seed.js`. Importing the database connection to `resetDb.js` and calling `sequelize.sync({force: true})`. In the `seed.js` file, bulk create some sample data to work with
+4. Create files `resetDb.js` and `seed.js`. Import the database connection to `resetDb.js` and calling `sequelize.sync({force: true})`. In the `seed.js` file, bulk create some sample data to work with
 5. Write `npm scripts` to run `resetDb` and `seed`
 
 #### Express
