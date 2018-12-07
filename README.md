@@ -4,7 +4,7 @@ For this exercise we are building a place tracker inspired by this [clever app](
 
 The assignment is to build an Express/React CRUD app with at least a single `Place` model.
 
-As a bonus, implement user auth and associate places with users in a `Place` belongs to user and `User` has many places relationship.
+As a **bonus**, implement user auth and associate places with users in a `Place` belongs to user and `User` has many places relationship.
 
 ## Getting Started
 
