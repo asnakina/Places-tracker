@@ -38,7 +38,7 @@ If the app has auth, places should be specific to the user. The user only sees t
 
 Once the wireframes are finished, box out components of the UI and write a componenet heirarchy.
 
-### Starting Coding
+### Starting Code
 
 This repo does not have any starter code.
 
