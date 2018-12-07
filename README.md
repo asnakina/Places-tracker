@@ -18,7 +18,7 @@ The bonus will have a second table `users`.
 
 The places table should have an `id`, `created_at` and `updated_at` timestamps, a `name`, `description`, a boolean `visited` and `address`
 
-[Use this link for creating an erd](https://www.lucidchart.com/pages/how-to-draw-ERD) - you do not have to create it digitally.
+[Use this link for creating an ERD](https://www.lucidchart.com/pages/how-to-draw-ERD) - you do not have to create it digitally.
 
 #### API Routes
 
