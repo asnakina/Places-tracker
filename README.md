@@ -36,9 +36,9 @@ The user should be able to:
 
 If the app has auth, places should be specific to the user. The user only sees their own places.
 
-#### Component Heirarchy
+#### Component Hierarchy
 
-Once the wireframes are finished, box out components of the UI and write a componenet heirarchy.
+Once the wireframes are finished, box out components of the UI and write a component hierarchy.
 
 ### Starting Code
 
@@ -47,11 +47,14 @@ This repo does not have any starter code.
 It is crucial that you don't start creating files and typing wildly. 
 You should be writing at most 10 lines of code between running the app and confirming what you are trying to do worked.
 
+
 When you write ten lines and something doesn't work, it is trivial to track down where the problem was introduced.
 
 When you write a hundred lines across five files tracking down the bug becomes a nightmare.
 
 We can think of CRUD apps as a database core with business logic wrapped in layers around it.
+
+If you're not sure if you should commit, you should commit.
 
 #### Sequelize
 
@@ -91,3 +94,8 @@ We already have the wireframe and our seed data.
 3. Identify the proper location for state (as low as possible without duplication)
 4. Write axios calls and set state in `componentDidMount` methods
 
+
+## Deliverables
+
+1. Upload your ERD, component hierarchy, wireframe.
+1. Have a functioning database, Express backend and React frontend. If a feature of your app is not working, please include it in your github comments upon submission.
