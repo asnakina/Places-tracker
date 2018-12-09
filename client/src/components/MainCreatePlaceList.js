@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import './App.css';
 import axios from 'axios';
-//import { getAllClasses } from '../services/classesApiService';
-//import CreatePlaceForm from './components/CreatePlaceForm'
+import CreatePlaceFormRender from './CreatePlaceFormRender'
+//import { getVisitedPlaces } from '../services/placesApiService';
 
-const BASE_URL = 'http://localhost:7778'
+const BASE_URL = 'http://localhost:7777'
+//but our client side is in http://localhost:3000
 
-class MainCreatePlaceForm extends Component {
+class MainCreatePlaceList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,35 +18,24 @@ class MainCreatePlaceForm extends Component {
         address: ''
       }
     }
-  }
+  this.fetchPlaces = this.fetchPlaces.bind(this);
+  this.handleChange = this.handleChange.bind(this);
+  this.handleSubmit = this.handleSubmit.bind(this);
+}
 
-  // async componentDidMount() {
-  //   await this.getAllPlaces();
-  // }
+async componentDidMount(){
+  //const places = await this.fetchPlaces();
+  await this.fetchPlaces()
+}
 
-  // async getAllPlaces() {
-  //  const response = await axios(`${BASE_URL}/places`);
-  //  const places = response.data;
-  //  this.setState({
-  //    places: places
-  //  });
-  // }
-  //
-  // async getVisitedPlaces() {
-  //   const response = await axios(`$BASE_URL/places/visited`);
-  //   const places = response.data;
-  //   this.setState({
-  //     places: places
-  //   });
-  // }
-  //
-  // async getNotvisitedPlaces() {
-  //   const response = await axios(`$BASE_URL/places/notvisited`);
-  //   const places = response.data;
-  //   this.setState({
-  //     places: places
-  //   });
-  // }
+async fetchPlaces() {
+  const resp = await axios.get(`${BASE_URL}/places`);
+  this.setState({
+    //places: places
+    places: resp.data
+  });
+  return resp.data;
+}
 
   async createPlace(placesData) {
     const response = await axios.post(`${BASE_URL}/places`, placesData);
@@ -83,21 +72,11 @@ class MainCreatePlaceForm extends Component {
     await this.createPlace(this.state.formData);
   }
 
-  handleDelete = async (id) => {
-    console.log(`Deleted place with id ${id}`);
-    await axios.delete(`${BASE_URL}/places/${id}`);
-    this.setState(prevState => {
-      return {
-        places: prevState.places.filter(thePlace => thePlace.id !== id)
-      }
-    });
-  }
-
   render() {
     return (
       <div className="App">
         <h1>Places around the world:</h1>
-        <CreatePlaceForm
+        <CreatePlaceFormRender
           onChange={this.handleChange}
           onSubmit={this.handleSubmit}
           name={this.state.formData.name}
@@ -110,4 +89,4 @@ class MainCreatePlaceForm extends Component {
   }
 }
 
-export default MainCreatePlaceForm;
+export default MainCreatePlaceList;

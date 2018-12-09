@@ -35,10 +35,11 @@ app.get('/places/:id', async (req, res) => {
     res.json({data: places});
   } catch (e) {
     console.error(e);
-    res.status(500).json({ message: e.message});
+    res.status(500).json({message: e.message});
   }
 })
 
+//it would be nice to have url '/places/visited'!
 app.get('/placesvisited', async(req, res) => {
   try{
     const places = await Place.findAll({

@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import './App.css';
 import axios from 'axios';
-// import { getAllClasses } from '../services/classesApiService';
-//import VisitedPlacesRender from './components/VisitedPlacesRender'
+import NotVisitedPlacesRender from './NotVisitedPlacesRender';
+//import { getVisitedPlaces } from '../services/placesApiService';
 
-const BASE_URL = 'http://localhost:7778'
+const BASE_URL = 'http://localhost:7777'
+//but our client side is in http://localhost:3000
 
 class NotVisitedPlacesList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       places: [],
+      //placesNotVisited: [],
       formData: {
         name: '',
         description: '',
@@ -18,14 +19,15 @@ class NotVisitedPlacesList extends Component {
         address: ''
       }
     }
+    this.fetchNotVisitedPlaces = this.fetchNotVisitedPlaces.bind(this);
   }
 
   async componentDidMount() {
     await this.getNotVisitedPlaces();
   }
 
-  async getNotvisitedPlaces() {
-    const response = await axios(`$BASE_URL/places/notvisited`);
+  async fetchNotvisitedPlaces() {
+    const response = await axios(`$BASE_URL/placesnotvisited`);
     const places = response.data;
     this.setState({
       places: places
@@ -34,7 +36,7 @@ class NotVisitedPlacesList extends Component {
 
   handleDelete = async (id) => {
     console.log(`Deleted place with id ${id}`);
-    await axios.delete(`${BASE_URL}/places/${id}`);
+    await axios.delete(`${BASE_URL}/placesnotvisited/${id}`);
     this.setState(prevState => {
       return {
         places: prevState.places.filter(thePlace => thePlace.id !== id)
@@ -52,6 +54,7 @@ class NotVisitedPlacesList extends Component {
           onDelete={this.handleDelete}
          />
       </div>
+    </div>
     );
   }
 }

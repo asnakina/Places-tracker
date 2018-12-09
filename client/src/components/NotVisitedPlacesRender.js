@@ -1,18 +1,22 @@
 import React from 'react';
-
-import VisitedPlacesList from './VisitedPlacesList'
+import NotVisitedPlacesList from './NotVisitedPlacesList'
+import PlacesItemsLook from './PlacesItemsLook'
+//but our client side is in http://localhost:3000
 
 function VisitedPlacesList(props) {
   return (
     <div>
       <h3>Places List</h3>
-      { props.places.map(place => (
-          key={place.id}
-          id={place.id}
-          name={place.name}
-          description={place.description}
-          address={place.address}
-          onDelete={()=> props.onDelete(place.id)}
+      { props.places.map(eachPlace => (
+        <PlacesItemsLook
+          key={eachPlace.id}
+          id={eachPlace.id}
+          name={eachPlace.name}
+          description={eachPlace.description}
+          visited={eachPlace.visited}
+          address={eachPlace.address}
+          onDelete={()=> props.onDelete(eachPlace.id)}
+        />
       ))}
     </div>
   );

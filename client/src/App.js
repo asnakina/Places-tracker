@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
-import VisitedPlacesList from './VisitedPlacesList'
-import NotVisitedPlacesList from './NotVisitedPlacesList'
-import MainCreatePlaceForm from './MainCreatePlaceForm'
+import VisitedPlacesList from './components/VisitedPlacesList'
+import NotVisitedPlacesList from './components/NotVisitedPlacesList'
+import MainCreatePlaceList from './components/MainCreatePlaceList'
 
-const BASE_URL = 'http://localhost:7778'
+const BASE_URL = 'http://localhost:7777'
+//but our client side is in http://localhost:3000
 
 class App extends Component {
   constructor(props) {
@@ -25,16 +26,16 @@ class App extends Component {
     let content;
     switch (this.state.screen) {
       case 'mainCreateView':
-      content = (<MainCreatePlaceForm />);
+       content = (<MainCreatePlaceList />);
       break;
       case 'visitPlacesView':
-      content = (<VisitedPlacesList />);
+       content = (<VisitedPlacesList />);
       break;
       case 'notvisitPlacesView':
-      content = (<NotVisitedPlacesList />);
+       content = (<NotVisitedPlacesList />);
       break;
       default:
-      content = (<reatePlaceForm />);
+       content = (<MainCreatePlaceList />);
     }
 
   return (
@@ -48,5 +49,6 @@ class App extends Component {
       </div>
     );
   }
+}
 
 export default App;
