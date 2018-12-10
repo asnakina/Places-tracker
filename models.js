@@ -14,7 +14,9 @@ const Place = sequelize.define('place', {
   description: Sequelize.STRING,
   visited: Sequelize.BOOLEAN,
   address: Sequelize.STRING
-})
+});
+
+//add more const!
 
 module.exports = {
   sequelize,

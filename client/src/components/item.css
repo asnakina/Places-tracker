@@ -1,0 +1,14 @@
+
+ul {
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 50px;
+}
+
+.item > div {
+  width: 350px;
+}

@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-import axios from 'axios';
-import VisitedPlacesList from './components/VisitedPlacesList'
-import NotVisitedPlacesList from './components/NotVisitedPlacesList'
-import MainCreatePlaceList from './components/MainCreatePlaceList'
-
-const BASE_URL = 'http://localhost:7777'
-//but our client side is in http://localhost:3000
+import VisitedPlacesList from './components/VisitedPlacesList';
+import NotVisitedPlacesList from './components/NotVisitedPlacesList';
+import MainCreatePlaceList from './components/MainCreatePlaceList';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      screen: ''
+      screen: 'mainCreateView'
     }
   }
 
@@ -23,19 +19,20 @@ class App extends Component {
   }
 
   render() {
+    //for switching between different views
     let content;
     switch (this.state.screen) {
       case 'mainCreateView':
-       content = (<MainCreatePlaceList />);
+       content = <MainCreatePlaceList />;
       break;
       case 'visitPlacesView':
-       content = (<VisitedPlacesList />);
+       content = <VisitedPlacesList />;
       break;
       case 'notvisitPlacesView':
-       content = (<NotVisitedPlacesList />);
+       content = <NotVisitedPlacesList />;
       break;
       default:
-       content = (<MainCreatePlaceList />);
+       content = <MainCreatePlaceList />;
     }
 
   return (
@@ -46,9 +43,11 @@ class App extends Component {
           <button onClick={() => this.setView('notvisitPlacesView')}>Plan to see these places</button>
           <button onClick={() => this.setView('mainCreateView')}>Main</button>
         </nav>
+        { content }
       </div>
     );
   }
+
 }
 
 export default App;

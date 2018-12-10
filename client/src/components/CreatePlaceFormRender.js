@@ -4,17 +4,15 @@ import CreatedItemsLook from './CreatedItemsLook'
 function CreatePlaceFormRender(props) {
   return (
     <div>
-      <h3>Put new country in the list:</h3>
-      { props.places.map(place => (
-        <CreatedItemsLook
-          key={place.id}
-          id={place.id}
-          name={place.name}
-          description={place.description}
-          address={place.address}
-          onDelete={()=> props.onDelete(place.id)}
-        />
-      ))}
+      <h3>Put a new country in the list</h3>
+      <CreatedItemsLook
+        name={props.name}
+        description={props.description}
+        visited={props.visited}
+        address={props.address}
+        onSubmit={props.onSubmit}
+        onChange={props.onChange}
+      />
     </div>
   );
 }

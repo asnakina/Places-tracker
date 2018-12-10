@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import { getVisitedPlaces } from '../services/placesApiService';
+//import { getVisitedPlaces } from '../services/placesApiService';
 import VisitedPlacesRender from './VisitedPlacesRender'
 
 const BASE_URL = 'http://localhost:7777'
@@ -11,7 +11,7 @@ class VisitedPlacesList extends Component {
     super(props);
     this.state = {
       places: [],
-      //placesVisited: [],
+      placesVisited: [],
       formData: {
         name: '',
         description: '',
@@ -20,6 +20,7 @@ class VisitedPlacesList extends Component {
       }
     }
     this.fetchVisitedPlaces = this.fetchVisitedPlaces.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   async componentDidMount() {
@@ -28,7 +29,7 @@ class VisitedPlacesList extends Component {
   }
 
   async fetchVisitedPlaces() {
-    const response = await axios(`$BASE_URL/placesvisited`);
+    const response = await axios.get(`${BASE_URL}/placesvisited`);
     const places = response.data;
     this.setState({
       places: places
@@ -43,19 +44,15 @@ class VisitedPlacesList extends Component {
 
   handleDelete = async (id) => {
     console.log(`Deleted place with id ${id}`);
-    await axios.delete(`${BASE_URL}/placesvisited/${id}`);
-    this.setState(prevState => {
-      return {
-        places: prevState.places.filter(thePlace => thePlace.id !== id)
-      }
-    });
+    await axios.delete(`${BASE_URL}/places/${id}`);
+    this.fetchVisitedPlaces();
   }
 
   render() {
     return (
       <div className="App">
         <h1>Places already visited:</h1>
-        <VisitedPlacesList
+        <VisitedPlacesRender
           places = {this.state.places}
           onDelete={this.handleDelete}
         />

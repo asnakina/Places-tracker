@@ -1,5 +1,4 @@
 import React from 'react';
-import VisitedPlacesList from './VisitedPlacesList'
 import PlacesItemsLook from './PlacesItemsLook'
 
 function VisitedPlacesRender(props) {

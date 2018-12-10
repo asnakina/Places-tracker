@@ -1,9 +1,7 @@
 import React from 'react';
-import NotVisitedPlacesList from './NotVisitedPlacesList'
 import PlacesItemsLook from './PlacesItemsLook'
-//but our client side is in http://localhost:3000
 
-function VisitedPlacesList(props) {
+function VisitedPlacesListRender(props) {
   return (
     <div>
       <h3>Places List</h3>
@@ -22,4 +20,4 @@ function VisitedPlacesList(props) {
   );
 }
 
-export default VisitedPlacesList;
+export default VisitedPlacesListRender;
